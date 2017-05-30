@@ -38,21 +38,64 @@ Notebooks on your host machine can be mounted to a Docker container by
 docker run -it -p 8888:8888 -v $(pwd):/notebooks akabe/iocaml-datascience
 ```
 
+
 ## Distributions
 
-The default `latest` version is the following distribution:
+The default images are built on Alpine 3.5:
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Alpine 3.5 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience` |
+| Tag | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| **latest** | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| 4.05.0 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:4.05.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.05.0/Dockerfile) |
+| 4.04.1 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:4.04.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| 4.03.0 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:4.03.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.03.0/Dockerfile) |
 
 ### Alpine
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Alpine 3.5 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine3.5_ocaml4.05.0` |
-| Alpine 3.5 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine3.5_ocaml4.04.1` |
-| Alpine 3.5 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine3.5_ocaml4.03.0` |
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| Alpine | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine_ocaml4.05.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.05.0/Dockerfile) |
+| Alpine | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine_ocaml4.04.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| Alpine | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine_ocaml4.03.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.03.0/Dockerfile) |
+| Alpine 3.5 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine3.5_ocaml4.05.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.05.0/Dockerfile) |
+| Alpine 3.5 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine3.5_ocaml4.04.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| Alpine 3.5 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:alpine3.5_ocaml4.03.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.03.0/Dockerfile) |
+
+### CentOS
+
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| CentOS | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
+| CentOS | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
+| CentOS | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
+| CentOS 7 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
+| CentOS 7 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
+| CentOS 7 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
+| CentOS 6 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos6_ocaml4.05.0` | [Dockerfile](dockerfiles/centos6_ocaml4.05.0/Dockerfile) |
+| CentOS 6 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos6_ocaml4.04.1` | [Dockerfile](dockerfiles/centos6_ocaml4.04.1/Dockerfile) |
+| CentOS 6 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos6_ocaml4.03.0` | [Dockerfile](dockerfiles/centos6_ocaml4.03.0/Dockerfile) |
+
+### Debian
+
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| Debian | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
+| Debian | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
+| Debian | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
+| Debian 8 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
+| Debian 8 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
+| Debian 8 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
+
+### Ubuntu
+
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| Ubuntu | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:ubuntu_ocaml4.05.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.05.0/Dockerfile) |
+| Ubuntu | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:ubuntu_ocaml4.04.1` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.04.1/Dockerfile) |
+| Ubuntu | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:ubuntu_ocaml4.03.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.03.0/Dockerfile) |
+| Ubuntu 16.04 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:ubuntu16.04_ocaml4.05.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.05.0/Dockerfile) |
+| Ubuntu 16.04 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:ubuntu16.04_ocaml4.04.1` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.04.1/Dockerfile) |
+| Ubuntu 16.04 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:ubuntu16.04_ocaml4.03.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.03.0/Dockerfile) |
 
 ## Pre-installed packages
 
