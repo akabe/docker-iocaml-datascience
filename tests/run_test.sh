@@ -11,7 +11,7 @@ function greeen_echo() {
 image=$1
 error_code=0
 
-for file in test/*.ml ; do
+for file in tests/*.ml ; do
     stdout=$(cat $file | docker run -i --rm $image ocaml -init /home/opam/.iocamlinit)
     if echo "$stdout" | grep -i 'error\|failure\|exception' >/dev/null; then
 	red_echo "[Failed] $file"

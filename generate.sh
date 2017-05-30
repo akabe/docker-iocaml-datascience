@@ -1,27 +1,23 @@
+
 #!/bin/bash
 
 function common_scripts() {
     cat <<'EOF'
-    opam install -y lacaml slap lbfgs ocephes oml gsl \
-                    cairo2 archimedes && \
+    opam install -y lacaml slap lbfgs ocephes oml gsl && \
     \
-    find $HOME/.opam -regex '.*\\.\\(cmt\\|cmti\\|annot\\|byte\\)' -delete && \
+    find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
+           $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build
 EOF
 }
 
 function alpine_scripts() {
     cat <<EOF
-FROM akabe/iocaml:${TAG}
-
-RUN sudo apk add --no-cache --upgrade \\
-             libffi lapack gsl \
-             cairo && \\
-    sudo apk add --no-cache --virtual .build-dependencies \\
-             m4 gfortran lapack-dev gsl-dev \\
-             libffi-dev cairo-dev && \\
+RUN sudo apk add --no-cache --upgrade libffi lapack gsl && \\
+    sudo apk add --no-cache --virtual=.build-dependencies \\
+             gfortran lapack-dev gsl-dev libffi-dev && \\
     \\
 $(common_scripts) && \\
     \\
@@ -29,8 +25,58 @@ $(common_scripts) && \\
 EOF
 }
 
-case $OS in
-    alpine )
-	alpine_scripts
-    ;;
-esac
+function centos_scripts() {
+    cat <<EOF
+RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel && \\
+    \\
+$(common_scripts) && \\
+    \\
+    sudo yum remove -y gfortran
+EOF
+}
+
+function debian_scripts() {
+    cat <<EOF
+RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl0-dev && \\
+    \\
+$(common_scripts) && \\
+    \\
+    sudo apt-get purge -y gfortran
+EOF
+}
+
+function ubuntu_scripts() {
+    cat <<EOF
+RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl-dev && \\
+    \\
+$(common_scripts) && \\
+    \\
+    sudo apt-get purge -y gfortran
+EOF
+}
+
+echo "Generating dockerfiles/$TAG/Dockerfile (ALIAS=${ALIAS[@]})..."
+
+rm -rf dockerfiles/$TAG
+mkdir -p dockerfiles/$TAG
+
+cat <<EOF >dockerfiles/$TAG/Dockerfile
+FROM akabe/iocaml:${TAG}
+EOF
+
+if [[ "$OS" =~ ^alpine: ]]; then
+    alpine_scripts >> dockerfiles/$TAG/Dockerfile
+    SHELL=sh
+elif [[ "$OS" =~ ^centos: ]]; then
+    centos_scripts >> dockerfiles/$TAG/Dockerfile
+    SHELL=bash
+elif [[ "$OS" =~ ^debian: ]]; then
+    debian_scripts >> dockerfiles/$TAG/Dockerfile
+    SHELL=bash
+elif [[ "$OS" =~ ^ubuntu: ]]; then
+    ubuntu_scripts >> dockerfiles/$TAG/Dockerfile
+    SHELL=bash
+else
+    echo -e "\033[31m[ERROR] Unknown base image: ${OS}\033[0m"
+    exit 1
+fi
