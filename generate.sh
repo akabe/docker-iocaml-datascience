@@ -3,7 +3,7 @@
 
 function common_scripts() {
     cat <<'EOF'
-    opam install -y lacaml slap lbfgs ocephes oml gsl && \
+    opam install -y lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
@@ -15,9 +15,8 @@ EOF
 
 function alpine_scripts() {
     cat <<EOF
-RUN sudo apk add --no-cache --upgrade libffi lapack gsl && \\
-    sudo apk add --no-cache --virtual=.build-dependencies \\
-             gfortran lapack-dev gsl-dev libffi-dev && \\
+RUN sudo apk add --no-cache --upgrade libffi-dev lapack-dev gsl-dev cairo-dev && \\
+    sudo apk add --no-cache --virtual=.build-dependencies gfortran && \\
     \\
 $(common_scripts) && \\
     \\
@@ -27,7 +26,7 @@ EOF
 
 function centos_scripts() {
     cat <<EOF
-RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel && \\
+RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel cairo-devel && \\
     \\
 $(common_scripts) && \\
     \\
@@ -37,7 +36,7 @@ EOF
 
 function debian_scripts() {
     cat <<EOF
-RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl0-dev && \\
+RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl0-dev libcairo2-dev && \\
     \\
 $(common_scripts) && \\
     \\
@@ -47,7 +46,7 @@ EOF
 
 function ubuntu_scripts() {
     cat <<EOF
-RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl-dev && \\
+RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl-dev libcairo2-dev && \\
     \\
 $(common_scripts) && \\
     \\
