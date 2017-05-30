@@ -1,34 +1,42 @@
-os:
-  - linux
-env:
-  matrix:
-    - TAG=latest OS=alpine
-    - TAG=alpine3.5_ocaml4.05.0 OS=alpine
-    - TAG=alpine3.5_ocaml4.04.1 OS=alpine
-    - TAG=alpine3.5_ocaml4.03.0 OS=alpine
-
 language: c
 sudo: required
-
+cache: apt
+os:
+  - linux
 services:
   - docker
+env:
+  - TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='alpine_ocaml4.06.0 4.06.0'
+  - TAG=alpine3.5_ocaml4.05.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='alpine_ocaml4.05.0 4.05.0'
+  - TAG=alpine3.5_ocaml4.04.1   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.04.1       ALIAS='alpine_ocaml4.04.1 4.04.1 latest'
+  - TAG=alpine3.5_ocaml4.03.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.03.0       ALIAS='alpine_ocaml4.03.0 4.03.0'
+  - TAG=centos7_ocaml4.06.0     OS=centos:7     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='centos_ocaml4.06.0'
+  - TAG=centos7_ocaml4.05.0     OS=centos:7     OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='centos_ocaml4.05.0'
+  - TAG=centos7_ocaml4.04.1     OS=centos:7     OPAM=1.2.2 OCAML=4.04.1       ALIAS='centos_ocaml4.04.1'
+  - TAG=centos7_ocaml4.03.0     OS=centos:7     OPAM=1.2.2 OCAML=4.03.0       ALIAS='centos_ocaml4.03.0'
+  - TAG=centos6_ocaml4.06.0     OS=centos:6     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS=''
+  - TAG=centos6_ocaml4.05.0     OS=centos:6     OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS=''
+  - TAG=centos6_ocaml4.04.1     OS=centos:6     OPAM=1.2.2 OCAML=4.04.1       ALIAS=''
+  - TAG=centos6_ocaml4.03.0     OS=centos:6     OPAM=1.2.2 OCAML=4.03.0       ALIAS=''
+  - TAG=debian8_ocaml4.06.0     OS=debian:8     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='debian_ocaml4.06.0'
+  - TAG=debian8_ocaml4.05.0     OS=debian:8     OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='debian_ocaml4.05.0'
+  - TAG=debian8_ocaml4.04.1     OS=debian:8     OPAM=1.2.2 OCAML=4.04.1       ALIAS='debian_ocaml4.04.1'
+  - TAG=debian8_ocaml4.03.0     OS=debian:8     OPAM=1.2.2 OCAML=4.03.0       ALIAS='debian_ocaml4.03.0'
+  - TAG=ubuntu16.04_ocaml4.06.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='ubuntu_ocaml4.06.0'
+  - TAG=ubuntu16.04_ocaml4.05.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='ubuntu_ocaml4.05.0'
+  - TAG=ubuntu16.04_ocaml4.04.1 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.04.1       ALIAS='ubuntu_ocaml4.04.1'
+  - TAG=ubuntu16.04_ocaml4.03.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.03.0       ALIAS='ubuntu_ocaml4.03.0'
+matrix:
+  allow_failures:
+    - env: TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='alpine_ocaml4.06.0 4.06.0'
+    - env: TAG=centos7_ocaml4.06.0     OS=centos:7     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='centos_ocaml4.06.0'
+    - env: TAG=centos6_ocaml4.06.0     OS=centos:6     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS=''
+    - env: TAG=debian8_ocaml4.06.0     OS=debian:8     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='debian_ocaml4.06.0'
+    - env: TAG=ubuntu16.04_ocaml4.06.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='ubuntu_ocaml4.06.0'
 
-before_install:
+install:
   - sudo apt-get update
   - sudo apt-get install -y -q -o Dpkg::Options::="--force-confnew" docker-engine
 
-install:
-  - ./generate.sh > Dockerfile
-  - docker build -t akabe/iocaml-datascience:$TAG .
-
 script:
-  - ./test/run_test.sh akabe/iocaml-datascience:$TAG
-
-after_success:
-  - |-
-    if [[ "$TRAVIS_PULL_REQUEST" == false ]] && [[ "$TRAVIS_BRANCH" == master ]]; then
-      docker login -u $DOCKER_USER -p $DOCKER_PWD
-      docker push akabe/iocaml-datascience:$TAG
-    else
-      echo -e "\033[33mSkip deploying image to DockerHub...\033[0m"
-    fi
+  - bash -eu travis-ci.sh

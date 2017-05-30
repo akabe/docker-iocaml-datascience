@@ -60,7 +60,7 @@ The default `latest` version is the following distribution:
 
 #### [Lacaml](http://mmottl.github.io/lacaml/) ([GitHub](https://github.com/mmottl/lacaml), [API](http://mmottl.github.io/lacaml/API.docdir/))
 
-Binding to [BLAS](http://www.netlib.org/blas/) (Basic Linear Algebra Subprograms) and [LAPACK](http://www.netlib.org/lapack/) (Linear Algebra PACKage), traditional linear algebra libraries written in Fortran. This library supplies basic operations on vectors and matrices (e.g., addition, dot product, multiplication), LU, QR, SVD, least-quare fitting, etc.
+Binding to [BLAS](http://www.netlib.org/blas/) (Basic Linear Algebra Subprograms) and [LAPACK](http://www.netlib.org/lapack/) (Linear Algebra PACKage), traditional linear algebra libraries written in Fortran. This library supplies basic operations on vectors and matrices (e.g., addition, dot product, multiplication), LU, QR, SVD, least-square fitting, etc.
 
 #### [SLAP](http://akabe.github.io/slap/) ([GitHub](https://github.com/akabe/slap), [API](http://akabe.github.io/slap/api/))
 
