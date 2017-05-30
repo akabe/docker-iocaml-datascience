@@ -1,9 +1,8 @@
 FROM akabe/iocaml:alpine3.5_ocaml4.06.0
-RUN sudo apk add --no-cache --upgrade libffi lapack gsl && \
-    sudo apk add --no-cache --virtual=.build-dependencies \
-             gfortran lapack-dev gsl-dev libffi-dev && \
+RUN sudo apk add --no-cache --upgrade libffi-dev lapack-dev gsl-dev cairo-dev && \
+    sudo apk add --no-cache --virtual=.build-dependencies gfortran && \
     \
-    opam install -y lacaml slap lbfgs ocephes oml gsl && \
+    opam install -y lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
