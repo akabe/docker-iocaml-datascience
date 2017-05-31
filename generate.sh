@@ -3,7 +3,8 @@
 
 function common_scripts() {
     cat <<'EOF'
-    opam install -y lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
+    opam install -y core batteries \
+                    lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
@@ -16,7 +17,7 @@ EOF
 function alpine_scripts() {
     cat <<EOF
 RUN sudo apk add --no-cache --upgrade libffi-dev lapack-dev gsl-dev cairo-dev && \\
-    sudo apk add --no-cache --virtual=.build-dependencies gfortran && \\
+    sudo apk add --no-cache --virtual=.build-dependencies bash gfortran && \\
     \\
 $(common_scripts) && \\
     \\
