@@ -1,8 +1,8 @@
 FROM akabe/iocaml:ubuntu16.04_ocaml4.03.0
 RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl-dev libcairo2-dev && \
     \
-    opam install -y core batteries \
-                    lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
+    (opam install -y batteries || :) && \
+    opam install -y core lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \

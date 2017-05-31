@@ -2,8 +2,8 @@ FROM akabe/iocaml:alpine3.5_ocaml4.04.1
 RUN sudo apk add --no-cache --upgrade libffi-dev lapack-dev gsl-dev cairo-dev && \
     sudo apk add --no-cache --virtual=.build-dependencies bash gfortran && \
     \
-    opam install -y core batteries \
-                    lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
+    (opam install -y batteries || :) && \
+    opam install -y core lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \

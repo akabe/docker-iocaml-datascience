@@ -1,8 +1,8 @@
 FROM akabe/iocaml:centos6_ocaml4.03.0
 RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel cairo-devel && \
     \
-    opam install -y core batteries \
-                    lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
+    (opam install -y batteries || :) && \
+    opam install -y core lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
