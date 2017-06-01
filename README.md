@@ -99,6 +99,23 @@ The default images are built on Alpine 3.5:
 
 ## Pre-installed packages
 
+### Standard libraries
+
+The OCaml standard library is too small in practical use.
+The following packages provide popular data structures, a lot of frequently-used functions such as string operations,
+complex iteration on collections, etc.
+
+#### [Jane Street Core](https://janestreet.github.io/) ([GitHub](https://github.com/janestreet/core), [API](https://ocaml.janestreet.com/ocaml-core/v0.9/doc/core/Core/))
+
+A huge extended standard library developed by Jane Street Capital.
+The library is actively maintained and reliable due to industrial use of Jane Street.
+Its interface is designed differently from the OCaml standard library.
+
+#### [Batteries Included](http://batteries.forge.ocamlcore.org/) ([GitHub](https://github.com/ocaml-batteries-team/batteries-included), [API](http://ocaml-batteries-team.github.io/batteries-included/hdoc2/))
+
+A famous extended standard library compatible with the OCaml standard library.
+It is smaller than Jane Street Core, but commonly-used functions are implemented.
+
 ### Numerical computation
 
 #### [Lacaml](http://mmottl.github.io/lacaml/) ([GitHub](https://github.com/mmottl/lacaml), [API](http://mmottl.github.io/lacaml/API.docdir/))
