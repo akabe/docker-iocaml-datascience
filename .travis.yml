@@ -5,6 +5,8 @@ os:
   - linux
 services:
   - docker
+  - mysql
+
 env:
   - TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='alpine_ocaml4.06.0 4.06.0'
   - TAG=alpine3.5_ocaml4.05.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='alpine_ocaml4.05.0 4.05.0'
