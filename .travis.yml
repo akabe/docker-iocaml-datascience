@@ -5,6 +5,7 @@ os:
   - linux
 services:
   - docker
+
 env:
   - TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='alpine_ocaml4.06.0 4.06.0'
   - TAG=alpine3.5_ocaml4.05.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='alpine_ocaml4.05.0 4.05.0'
@@ -37,6 +38,9 @@ matrix:
 install:
   - sudo apt-get update
   - sudo apt-get install -y -q -o Dpkg::Options::="--force-confnew" docker-engine
+
+before_script:
+  - docker run -d --name postgres postgres:alpine
 
 script:
   - bash -eu travis-ci.sh

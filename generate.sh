@@ -4,7 +4,7 @@
 function common_scripts() {
     cat <<'EOF'
     (opam install -y batteries || :) && \
-    opam install -y core lacaml slap lbfgs ocephes oml gsl cairo2 archimedes && \
+    opam install -y core lacaml slap lbfgs ocephes oml gsl cairo2 archimedes postgresql && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
@@ -16,7 +16,7 @@ EOF
 
 function alpine_scripts() {
     cat <<EOF
-RUN sudo apk add --no-cache --upgrade libffi-dev lapack-dev gsl-dev cairo-dev && \\
+RUN sudo apk add --no-cache --upgrade libffi-dev lapack-dev gsl-dev cairo-dev postgresql-dev && \\
     sudo apk add --no-cache --virtual=.build-dependencies bash gfortran && \\
     \\
 $(common_scripts) && \\
@@ -27,7 +27,7 @@ EOF
 
 function centos_scripts() {
     cat <<EOF
-RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel cairo-devel && \\
+RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel cairo-devel postgresql-devel && \\
     \\
 $(common_scripts) && \\
     \\
@@ -37,7 +37,7 @@ EOF
 
 function debian_scripts() {
     cat <<EOF
-RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl0-dev libcairo2-dev && \\
+RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl0-dev libcairo2-dev libpq-dev && \\
     \\
 $(common_scripts) && \\
     \\
@@ -47,7 +47,7 @@ EOF
 
 function ubuntu_scripts() {
     cat <<EOF
-RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl-dev libcairo2-dev && \\
+RUN sudo apt-get install -y gfortran libffi-dev libblas-dev liblapack-dev libgsl-dev libcairo2-dev libpq-dev && \\
     \\
 $(common_scripts) && \\
     \\
