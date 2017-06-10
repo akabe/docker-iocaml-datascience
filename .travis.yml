@@ -7,33 +7,13 @@ services:
   - docker
 
 env:
-  - TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='alpine_ocaml4.06.0 4.06.0'
-  - TAG=alpine3.5_ocaml4.05.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='alpine_ocaml4.05.0 4.05.0'
-  - TAG=alpine3.5_ocaml4.04.1   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.04.1       ALIAS='alpine_ocaml4.04.1 4.04.1 latest'
-  - TAG=alpine3.5_ocaml4.03.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.03.0       ALIAS='alpine_ocaml4.03.0 4.03.0'
-  - TAG=centos7_ocaml4.06.0     OS=centos:7     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='centos_ocaml4.06.0'
-  - TAG=centos7_ocaml4.05.0     OS=centos:7     OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='centos_ocaml4.05.0'
-  - TAG=centos7_ocaml4.04.1     OS=centos:7     OPAM=1.2.2 OCAML=4.04.1       ALIAS='centos_ocaml4.04.1'
-  - TAG=centos7_ocaml4.03.0     OS=centos:7     OPAM=1.2.2 OCAML=4.03.0       ALIAS='centos_ocaml4.03.0'
-  - TAG=centos6_ocaml4.06.0     OS=centos:6     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS=''
-  - TAG=centos6_ocaml4.05.0     OS=centos:6     OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS=''
-  - TAG=centos6_ocaml4.04.1     OS=centos:6     OPAM=1.2.2 OCAML=4.04.1       ALIAS=''
-  - TAG=centos6_ocaml4.03.0     OS=centos:6     OPAM=1.2.2 OCAML=4.03.0       ALIAS=''
-  - TAG=debian8_ocaml4.06.0     OS=debian:8     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='debian_ocaml4.06.0'
-  - TAG=debian8_ocaml4.05.0     OS=debian:8     OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='debian_ocaml4.05.0'
-  - TAG=debian8_ocaml4.04.1     OS=debian:8     OPAM=1.2.2 OCAML=4.04.1       ALIAS='debian_ocaml4.04.1'
-  - TAG=debian8_ocaml4.03.0     OS=debian:8     OPAM=1.2.2 OCAML=4.03.0       ALIAS='debian_ocaml4.03.0'
-  - TAG=ubuntu16.04_ocaml4.06.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='ubuntu_ocaml4.06.0'
-  - TAG=ubuntu16.04_ocaml4.05.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='ubuntu_ocaml4.05.0'
-  - TAG=ubuntu16.04_ocaml4.04.1 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.04.1       ALIAS='ubuntu_ocaml4.04.1'
-  - TAG=ubuntu16.04_ocaml4.03.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.03.0       ALIAS='ubuntu_ocaml4.03.0'
+  - TAG=centos7_ocaml4.06.0 OS=centos:7 OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='4.06.0'
+  - TAG=centos7_ocaml4.05.0 OS=centos:7 OPAM=1.2.2 OCAML=4.05.0+trunk ALIAS='4.05.0'
+  - TAG=centos7_ocaml4.04.1 OS=centos:7 OPAM=1.2.2 OCAML=4.04.1       ALIAS='4.04.1 latest'
+  - TAG=centos7_ocaml4.03.0 OS=centos:7 OPAM=1.2.2 OCAML=4.03.0       ALIAS='4.03.0'
 matrix:
   allow_failures:
-    - env: TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='alpine_ocaml4.06.0 4.06.0'
-    - env: TAG=centos7_ocaml4.06.0     OS=centos:7     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='centos_ocaml4.06.0'
-    - env: TAG=centos6_ocaml4.06.0     OS=centos:6     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS=''
-    - env: TAG=debian8_ocaml4.06.0     OS=debian:8     OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='debian_ocaml4.06.0'
-    - env: TAG=ubuntu16.04_ocaml4.06.0 OS=ubuntu:16.04 OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='ubuntu_ocaml4.06.0'
+    - env: TAG=centos7_ocaml4.06.0 OS=centos:7 OPAM=1.2.2 OCAML=4.06.0+trunk ALIAS='4.06.0'
 
 install:
   - sudo apt-get update
