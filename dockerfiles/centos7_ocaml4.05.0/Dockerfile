@@ -1,4 +1,5 @@
 FROM akabe/iocaml:centos7_ocaml4.05.0
+
 RUN sudo yum install -y gfortran blas-devel lapack-devel gsl-devel libffi-devel cairo-devel postgresql-devel && \
     \
     (opam install -y batteries || :) && \
