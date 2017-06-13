@@ -25,6 +25,7 @@ install:
   - sudo apt-get install -y -q -o Dpkg::Options::="--force-confnew" docker-engine
 
 before_script:
+  - docker run -d --name mariadb -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mariadb:10.2
   - docker run -d --name postgres postgres:alpine
 
 script:
