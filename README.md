@@ -127,6 +127,18 @@ A 2D plot library like matplotlib in Python. You can embed PNG images in Jupyter
 
 Binding to [Cairo](https://cairographics.org/), a 2D vector graphics library. This library is useful as a backend of Archimedes.
 
+### Data sources
+
+#### MariaDB ([GitHub](https://github.com/andrenth/ocaml-mariadb))
+
+MariaDB is a rich relational database management system compatible with MySQL.
+This client library provides blocking and nonblocking (Lwt and Async) interfaces
+that can connect both of MySQL and MariaDB.
+
+#### [Postgresql](http://mmottl.github.io/postgresql-ocaml/) ([GitHub](https://github.com/mmottl/postgresql-ocaml), [API](http://mmottl.github.io/postgresql-ocaml/api/))
+
+PostgreSQL is a popular relational database with many aggregate and window functions useful for data analysis.
+
 ## Contribution
 
 If you know a widely-used numerical library in OCaml, find a bug, or have an idea to improve this environment, please create an issue or pull-request your changes.
