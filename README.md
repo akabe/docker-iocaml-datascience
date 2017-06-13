@@ -105,6 +105,8 @@ A high-level wrapper of Lacaml with type-based static size checks for vectors an
 
 Binding to [GNU Scientific Library (GSL)](http://www.gnu.org/software/gsl/), a rich numerical analysis library containing interface to BLAS. This library contains eigenproblem solvers, least square fitting, pseudo-random number generators (such as Mersenne Twister), FFT (fast Fourier transform), Monte-Carlo simulation, etc.
 
+- [examples/gaussian_random_walk.ipynb](examples/gaussian_random_walk.ipynb)
+
 #### [L-BFGS](https://github.com/Chris00/L-BFGS-ocaml) ([API](http://lbfgs.forge.ocamlcore.org/API.docdir/Lbfgs.html))
 
 Binding to [L-BFGS-B](http://users.iems.northwestern.edu/~nocedal/lbfgsb.html), a quasi-Newton library for bound-constrained optimization.
@@ -122,6 +124,8 @@ A small library for numerical computing on OCaml.
 #### [Archimedes](http://archimedes.forge.ocamlcore.org/) ([API](http://archimedes.forge.ocamlcore.org/API/Archimedes.html))
 
 A 2D plot library like matplotlib in Python. You can embed PNG images in Jupyter notebooks.
+
+- [examples/archimedes_iocaml.ipynb](examples/archimedes_iocaml.ipynb)
 
 #### Cairo2 ([GitHub](https://github.com/Chris00/ocaml-cairo), [Tutorial](http://cairo.forge.ocamlcore.org/tutorial/index.html), [API](http://cairo.forge.ocamlcore.org/tutorial/Cairo.html))
 
