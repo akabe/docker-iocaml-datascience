@@ -133,6 +133,10 @@ Binding to [Cairo](https://cairographics.org/), a 2D vector graphics library. Th
 
 ### Data sources
 
+#### [MySQL](http://ygrek.org.ua/p/ocaml-mysql/) ([GitHub](https://github.com/ygrek/ocaml-mysql), [API](http://ygrek.org.ua/p/ocaml-mysql/api/index.html))
+
+A well-benchmarked MySQL client library providing blocking API.
+
 #### MariaDB ([GitHub](https://github.com/andrenth/ocaml-mariadb))
 
 MariaDB is a rich relational database management system compatible with MySQL.
@@ -142,6 +146,10 @@ that can connect both of MySQL and MariaDB.
 #### [Postgresql](http://mmottl.github.io/postgresql-ocaml/) ([GitHub](https://github.com/mmottl/postgresql-ocaml), [API](http://mmottl.github.io/postgresql-ocaml/api/))
 
 PostgreSQL is a popular relational database with many aggregate and window functions useful for data analysis.
+
+#### [SQLite3](http://mmottl.github.io/sqlite3-ocaml/) ([GitHub](https://github.com/mmottl/sqlite3-ocaml), [API](http://mmottl.github.io/sqlite3-ocaml/API.docdir/))
+
+A client library for SQLite3, a easy-to-use lightweight database.
 
 #### [ocurl](http://ygrek.org.ua/p/ocurl/) ([GitHub](https://github.com/ygrek/ocurl), [API](http://ygrek.org.ua/p/ocurl/api/index.html))
 

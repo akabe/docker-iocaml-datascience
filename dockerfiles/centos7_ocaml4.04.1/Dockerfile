@@ -11,11 +11,14 @@ RUN sudo yum install -y \
       cairo-devel \
       MariaDB-devel \
       postgresql-devel \
+      sqlite-devel \
       libcurl-devel && \
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \
     \
+    opam update && \
     (opam install -y batteries || :) && \
     opam install -y \
+      num \
       'core>=v0.9.0' \
       lacaml \
       slap \
@@ -25,8 +28,10 @@ RUN sudo yum install -y \
       gsl \
       'cairo2>=0.5' \
       archimedes \
+      mysql \
       'mariadb>=0.8.1' \
       postgresql \
+      sqlite3 \
       ocurl && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \

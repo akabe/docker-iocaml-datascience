@@ -1,10 +1,11 @@
-
 #!/bin/bash
 
 function common_scripts() {
     cat <<'EOF'
+    opam update && \
     (opam install -y batteries || :) && \
     opam install -y \
+      num \
       'core>=v0.9.0' \
       lacaml \
       slap \
@@ -14,8 +15,10 @@ function common_scripts() {
       gsl \
       'cairo2>=0.5' \
       archimedes \
+      mysql \
       'mariadb>=0.8.1' \
       postgresql \
+      sqlite3 \
       ocurl && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
@@ -49,6 +52,7 @@ RUN sudo yum install -y \\
       cairo-devel \\
       MariaDB-devel \\
       postgresql-devel \\
+      sqlite-devel \\
       libcurl-devel && \\
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \\
     \\
@@ -74,6 +78,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       libcairo2-dev \\
       libmariadb-dev \\
       libpq-dev \\
+      libsqlite3-dev \\
       libcurl4-openssl-dev && \\
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \\
     \\

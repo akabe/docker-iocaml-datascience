@@ -12,7 +12,7 @@ image=$1
 error_code=0
 
 for file in tests/*.ml ; do
-    stdout=$(cat $file | docker run -i --rm --link mariadb:mariadb --link postgres:postgres $image ocaml -init /home/opam/.iocamlinit)
+    stdout=$(cat $file | docker run -i --rm --link mysql:mysql --link postgres:postgres $image ocaml -init /home/opam/.iocamlinit)
     if echo "$stdout" | grep -i 'error\|failure\|exception' >/dev/null; then
 	red_echo "[Failed] $file"
 	error_code=1
