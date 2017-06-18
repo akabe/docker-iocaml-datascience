@@ -143,6 +143,11 @@ that can connect both of MySQL and MariaDB.
 
 PostgreSQL is a popular relational database with many aggregate and window functions useful for data analysis.
 
+#### [ocurl](http://ygrek.org.ua/p/ocurl/) ([GitHub](https://github.com/ygrek/ocurl), [API](http://ygrek.org.ua/p/ocurl/api/index.html))
+
+Binding to libcurl, a popular easy-to-use HTTP(S) client library.
+This library is useful to access to API servers or Web scraping.
+
 ## Contribution
 
 If you know a widely-used numerical library in OCaml, find a bug, or have an idea to improve this environment, please create an issue or pull-request your changes.
