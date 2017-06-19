@@ -1,7 +1,8 @@
 FROM akabe/iocaml:debian8_ocaml4.03.0
 
+ADD iocaml-datascience-extra.list /etc/apt/sources.list.d/iocaml-datascience-extra.list
+
 RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db && \
-    echo 'deb [arch=amd64,i386] http://mirrors.accretive-networks.net/mariadb/repo/10.2/debian jessie main' | sudo tee -a /etc/apt/sources.list && \
     sudo apt-get update && \
     sudo apt-get install -y \
       gfortran \
@@ -13,7 +14,9 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       libmariadb-dev \
       libpq-dev \
       libsqlite3-dev \
-      libcurl4-openssl-dev && \
+      libcurl4-openssl-dev \
+      imagemagick \
+      ffmpeg && \
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \
     \
     opam update && \

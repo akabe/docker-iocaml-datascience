@@ -2,7 +2,9 @@ FROM akabe/iocaml:centos7_ocaml4.03.0
 
 ADD MariaDB.repo /etc/yum.repos.d/MariaDB.repo
 
-RUN sudo yum install -y \
+RUN sudo yum -y install epel-release && \
+    sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \
+    sudo yum install -y --enablerepo=epel,nux-dextop \
       gfortran \
       blas-devel \
       lapack-devel \
@@ -12,7 +14,9 @@ RUN sudo yum install -y \
       MariaDB-devel \
       postgresql-devel \
       sqlite-devel \
-      libcurl-devel && \
+      libcurl-devel \
+      ImageMagick \
+      ffmpeg && \
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \
     \
     opam update && \
