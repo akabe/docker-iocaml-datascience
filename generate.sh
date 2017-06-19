@@ -43,7 +43,9 @@ FROM akabe/iocaml:${TAG}
 
 ADD MariaDB.repo /etc/yum.repos.d/MariaDB.repo
 
-RUN sudo yum install -y \\
+RUN sudo yum -y install epel-release && \\
+    sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \\
+    sudo yum install -y --enablerepo=epel,nux-dextop \\
       gfortran \\
       blas-devel \\
       lapack-devel \\
@@ -53,7 +55,8 @@ RUN sudo yum install -y \\
       MariaDB-devel \\
       postgresql-devel \\
       sqlite-devel \\
-      libcurl-devel && \\
+      libcurl-devel \\
+      ffmpeg && \\
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \\
     \\
 $(common_scripts) && \\
@@ -63,11 +66,17 @@ EOF
 }
 
 function debian_scripts() {
-    cat <<EOF > dockerfiles/$TAG/Dockerfile
+	cat <<'EOF' > dockerfiles/$TAG/iocaml-datascience-extra.list
+deb http://ftp.uk.debian.org/debian jessie-backports main
+deb [arch=amd64,i386] http://mirrors.accretive-networks.net/mariadb/repo/10.2/debian jessie main
+EOF
+
+	cat <<EOF > dockerfiles/$TAG/Dockerfile
 FROM akabe/iocaml:${TAG}
 
+ADD iocaml-datascience-extra.list /etc/apt/sources.list.d/iocaml-datascience-extra.list
+
 RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db && \\
-    echo 'deb [arch=amd64,i386] http://mirrors.accretive-networks.net/mariadb/repo/10.2/debian jessie main' | sudo tee -a /etc/apt/sources.list && \\
     sudo apt-get update && \\
     sudo apt-get install -y \\
       gfortran \\
@@ -79,7 +88,8 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       libmariadb-dev \\
       libpq-dev \\
       libsqlite3-dev \\
-      libcurl4-openssl-dev && \\
+      libcurl4-openssl-dev \\
+      ffmpeg && \\
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \\
     \\
 $(common_scripts) && \\

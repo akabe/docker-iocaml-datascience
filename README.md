@@ -156,6 +156,12 @@ A client library for SQLite3, a easy-to-use lightweight database.
 Binding to libcurl, a popular easy-to-use HTTP(S) client library.
 This library is useful to access to API servers or Web scraping.
 
+### CUI tools
+
+#### [FFmpeg](https://ffmpeg.org/)
+
+FFmpeg is a powerful tool for converting audio and video files.
+
 ## Contribution
 
 If you know a widely-used numerical library in OCaml, find a bug, or have an idea to improve this environment, please create an issue or pull-request your changes.
