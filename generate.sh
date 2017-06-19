@@ -63,6 +63,9 @@ RUN sudo yum -y install epel-release && \\
 $(common_scripts) && \\
     \\
     sudo yum remove -y gfortran
+
+ADD custom.css /home/opam/.jupyter/custom/custom.css
+ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
 EOF
 }
 
@@ -97,6 +100,9 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
 $(common_scripts) && \\
     \\
     sudo apt-get purge -y gfortran
+
+ADD custom.css /home/opam/.jupyter/custom/custom.css
+ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
 EOF
 }
 
@@ -104,6 +110,33 @@ echo "Generating dockerfiles/$TAG/Dockerfile (ALIAS=${ALIAS[@]})..."
 
 rm -rf dockerfiles/$TAG
 mkdir -p dockerfiles/$TAG
+
+cat <<'EOF' > dockerfiles/$TAG/custom.css
+@font-face {
+  font-family: "Ricty Diminished Discord";
+  src: local("Ricty Diminished Discord");
+}
+@font-face {
+  font-family: "Ricty Diminished";
+  src: local("Ricty Diminished");
+}
+
+.CodeMirror pre, .output pre {
+  font-family: "Ricty Diminished Discord", "Ricty Diminished", "Lucida Console", Monaco, monospace;
+}
+EOF
+
+cat <<'EOF' > dockerfiles/$TAG/notebook.json
+{
+  "CodeCell": {
+    "cm_config": {
+      "indentUnit": 2,
+      "lineNumbers": true,
+      "autoCloseBrackets": true
+    }
+  }
+}
+EOF
 
 if [[ "$OS" =~ ^centos: ]]; then
     centos_scripts

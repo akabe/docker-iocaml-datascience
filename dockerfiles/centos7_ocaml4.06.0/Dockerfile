@@ -45,3 +45,6 @@ RUN sudo yum -y install epel-release && \
            $HOME/.opam/$OCAML_VERSION/build && \
     \
     sudo yum remove -y gfortran
+
+ADD custom.css /home/opam/.jupyter/custom/custom.css
+ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json

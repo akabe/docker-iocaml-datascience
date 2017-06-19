@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Ricty Diminished Discord";
+  src: local("Ricty Diminished Discord");
+}
+@font-face {
+  font-family: "Ricty Diminished";
+  src: local("Ricty Diminished");
+}
+
+.CodeMirror pre, .output pre {
+  font-family: "Ricty Diminished Discord", "Ricty Diminished", "Lucida Console", Monaco, monospace;
+}

@@ -45,3 +45,6 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
            $HOME/.opam/$OCAML_VERSION/build && \
     \
     sudo apt-get purge -y gfortran
+
+ADD custom.css /home/opam/.jupyter/custom/custom.css
+ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
