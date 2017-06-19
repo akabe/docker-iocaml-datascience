@@ -11,12 +11,13 @@ function greeen_echo() {
 image=$1
 error_code=0
 
-for cmd in ffmpeg ; do
-	if [[ "$(type -p $cmd)" == '' ]]; then
-		red_echo "[Failed] Command $cmd is not found: $(type -p $cmd)"
+for cmd in convert ffmpeg ; do
+	path=$(docker run --rm $image which $cmd)
+	if [[ "$path" == '' ]]; then
+		red_echo "[Failed] Command $cmd is not found."
 		error_code=1
     else
-		greeen_echo "[Passed] $cmd is found."
+		greeen_echo "[Passed] $cmd is found: $path"
 	fi
 done
 

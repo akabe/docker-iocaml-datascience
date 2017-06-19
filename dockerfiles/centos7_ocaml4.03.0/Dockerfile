@@ -15,6 +15,7 @@ RUN sudo yum -y install epel-release && \
       postgresql-devel \
       sqlite-devel \
       libcurl-devel \
+      ImageMagick \
       ffmpeg && \
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \
     \

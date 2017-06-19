@@ -15,6 +15,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       libpq-dev \
       libsqlite3-dev \
       libcurl4-openssl-dev \
+      imagemagick \
       ffmpeg && \
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \
     \

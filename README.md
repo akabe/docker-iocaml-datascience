@@ -158,6 +158,11 @@ This library is useful to access to API servers or Web scraping.
 
 ### CUI tools
 
+#### [ImageMagick](https://www.imagemagick.org/script/index.php)
+
+ImageMagick is a program to create, edit, compose, or convert bitmap images.
+This supports many formats, e.g., PNG, JPEG, GIF, TIFF, PDF, etc.
+
 #### [FFmpeg](https://ffmpeg.org/)
 
 FFmpeg is a powerful tool for converting audio and video files.
