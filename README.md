@@ -48,7 +48,6 @@ The default images are built on Debian 8:
 | **latest** | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
 | 4.05.0 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | 4.04.1 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
-| 4.03.0 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
 
 ### CentOS
 
@@ -56,10 +55,8 @@ The default images are built on Debian 8:
 | ------------ | ----- | ---- | ------- | ---------- |
 | CentOS | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
 | CentOS | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
-| CentOS | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
 | CentOS 7 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
 | CentOS 7 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
-| CentOS 7 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
 
 ### Debian
 
@@ -67,10 +64,8 @@ The default images are built on Debian 8:
 | ------------ | ----- | ---- | ------- | ---------- |
 | Debian | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | Debian | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
-| Debian | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
 | Debian 8 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | Debian 8 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
-| Debian 8 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
 
 ## Pre-installed packages
 
@@ -110,6 +105,11 @@ Binding to [GNU Scientific Library (GSL)](http://www.gnu.org/software/gsl/), a r
 #### FFTW3 ([GitHub](https://github.com/Chris00/fftw-ocaml))
 
 Binding to [FFTW3](http://fftw.org/), a major fast Fourier transform library.
+
+#### libsvm ([BitBucket](https://bitbucket.org/ogu/libsvm-ocaml/), [API](https://ogu.bitbucket.io/libsvm-ocaml/api/))
+
+Support vector machine (SVM) is a powerful model in machine learning.
+This is a binding to [libsvm](https://www.csie.ntu.edu.tw/~cjlin/libsvm/), a library for SVMs.
 
 #### [L-BFGS](https://github.com/Chris00/L-BFGS-ocaml) ([API](http://lbfgs.forge.ocamlcore.org/API.docdir/Lbfgs.html))
 

@@ -11,6 +11,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       liblapack-dev \
       libgsl0-dev \
       libfftw3-dev \
+      libsvm-dev \
       libcairo2-dev \
       libmariadb-dev \
       libpq-dev \
@@ -38,13 +39,31 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       'mariadb>=0.8.1' \
       postgresql \
       sqlite3 \
-      ocurl && \
+      ocurl \
+      'oasis>=0.4.0' && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
+    \
+    eval $(opam config env) && \
+    \
+    : install libsvm && \
+    curl -L https://bitbucket.org/ogu/libsvm-ocaml/downloads/libsvm-ocaml-0.9.3.tar.gz \
+         -o /tmp/libsvm-ocaml-0.9.3.tar.gz && \
+    tar zxf /tmp/libsvm-ocaml-0.9.3.tar.gz -C /tmp && \
+    ( \
+      cd /tmp/libsvm-ocaml-0.9.3 && \
+      oasis setup && \
+      ./configure --prefix=$(opam config var prefix) && \
+      make && \
+      make install \
+    ) && \
+    rm -rf /tmp/libsvm-ocaml-0.9.3.tar.gz /tmp/libsvm-ocaml-0.9.3 && \
+    \
+    opam uninstall oasis && \
     \
     sudo apt-get purge -y gfortran
 
