@@ -10,6 +10,7 @@ RUN sudo yum -y install epel-release && \
       lapack-devel \
       gsl-devel \
       libffi-devel \
+      fftw-devel \
       cairo-devel \
       MariaDB-devel \
       postgresql-devel \
@@ -30,6 +31,7 @@ RUN sudo yum -y install epel-release && \
       ocephes \
       oml \
       gsl \
+      fftw3 \
       'cairo2>=0.5' \
       archimedes \
       mysql \
