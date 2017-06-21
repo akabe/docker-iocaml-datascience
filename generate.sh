@@ -13,6 +13,7 @@ function common_scripts() {
       ocephes \
       oml \
       gsl \
+      fftw3 \
       'cairo2>=0.5' \
       archimedes \
       mysql \
@@ -51,6 +52,7 @@ RUN sudo yum -y install epel-release && \\
       lapack-devel \\
       gsl-devel \\
       libffi-devel \\
+      fftw-devel \\
       cairo-devel \\
       MariaDB-devel \\
       postgresql-devel \\
@@ -88,6 +90,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       libblas-dev \\
       liblapack-dev \\
       libgsl0-dev \\
+      libfftw3-dev \\
       libcairo2-dev \\
       libmariadb-dev \\
       libpq-dev \\

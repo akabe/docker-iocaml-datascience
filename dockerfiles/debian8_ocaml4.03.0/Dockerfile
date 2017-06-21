@@ -10,6 +10,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       libblas-dev \
       liblapack-dev \
       libgsl0-dev \
+      libfftw3-dev \
       libcairo2-dev \
       libmariadb-dev \
       libpq-dev \
@@ -30,6 +31,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
       ocephes \
       oml \
       gsl \
+      fftw3 \
       'cairo2>=0.5' \
       archimedes \
       mysql \

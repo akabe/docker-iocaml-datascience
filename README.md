@@ -107,6 +107,10 @@ Binding to [GNU Scientific Library (GSL)](http://www.gnu.org/software/gsl/), a r
 
 - [examples/gaussian_random_walk.ipynb](examples/gaussian_random_walk.ipynb)
 
+#### FFTW3 ([GitHub](https://github.com/Chris00/fftw-ocaml))
+
+Binding to [FFTW3](http://fftw.org/), a major fast Fourier transform library.
+
 #### [L-BFGS](https://github.com/Chris00/L-BFGS-ocaml) ([API](http://lbfgs.forge.ocamlcore.org/API.docdir/Lbfgs.html))
 
 Binding to [L-BFGS-B](http://users.iems.northwestern.edu/~nocedal/lbfgsb.html), a quasi-Newton library for bound-constrained optimization.
