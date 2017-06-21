@@ -106,6 +106,8 @@ Binding to [GNU Scientific Library (GSL)](http://www.gnu.org/software/gsl/), a r
 
 Binding to [FFTW3](http://fftw.org/), a major fast Fourier transform library.
 
+- [examples/fftw3_example.ipynb](examples/fftw3_example.ipynb)
+
 #### libsvm ([BitBucket](https://bitbucket.org/ogu/libsvm-ocaml/), [API](https://ogu.bitbucket.io/libsvm-ocaml/api/))
 
 Support vector machine (SVM) is a powerful model in machine learning.
