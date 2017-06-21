@@ -111,6 +111,11 @@ Binding to [GNU Scientific Library (GSL)](http://www.gnu.org/software/gsl/), a r
 
 Binding to [FFTW3](http://fftw.org/), a major fast Fourier transform library.
 
+#### libsvm ([BitBucket](https://bitbucket.org/ogu/libsvm-ocaml/), [API](https://ogu.bitbucket.io/libsvm-ocaml/api/))
+
+Support vector machine (SVM) is a powerful model in machine learning.
+This is a binding to [libsvm](https://www.csie.ntu.edu.tw/~cjlin/libsvm/), a library for SVMs.
+
 #### [L-BFGS](https://github.com/Chris00/L-BFGS-ocaml) ([API](http://lbfgs.forge.ocamlcore.org/API.docdir/Lbfgs.html))
 
 Binding to [L-BFGS-B](http://users.iems.northwestern.edu/~nocedal/lbfgsb.html), a quasi-Newton library for bound-constrained optimization.
