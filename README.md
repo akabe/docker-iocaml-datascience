@@ -48,7 +48,6 @@ The default images are built on Debian 8:
 | **latest** | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
 | 4.05.0 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | 4.04.1 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
-| 4.03.0 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
 
 ### CentOS
 
@@ -56,10 +55,8 @@ The default images are built on Debian 8:
 | ------------ | ----- | ---- | ------- | ---------- |
 | CentOS | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
 | CentOS | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
-| CentOS | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
 | CentOS 7 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
 | CentOS 7 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
-| CentOS 7 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
 
 ### Debian
 
@@ -67,10 +64,8 @@ The default images are built on Debian 8:
 | ------------ | ----- | ---- | ------- | ---------- |
 | Debian | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | Debian | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
-| Debian | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
 | Debian 8 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | Debian 8 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
-| Debian 8 | 4.03.0 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
 
 ## Pre-installed packages
 
