@@ -11,6 +11,7 @@ RUN sudo yum -y install epel-release && \
       gsl-devel \
       libffi-devel \
       fftw-devel \
+      libsvm-devel \
       cairo-devel \
       MariaDB-devel \
       postgresql-devel \
@@ -38,13 +39,31 @@ RUN sudo yum -y install epel-release && \
       'mariadb>=0.8.1' \
       postgresql \
       sqlite3 \
-      ocurl && \
+      ocurl \
+      'oasis>=0.4.0' && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
+    \
+    eval $(opam config env) && \
+    \
+    : install libsvm && \
+    curl -L https://bitbucket.org/ogu/libsvm-ocaml/downloads/libsvm-ocaml-0.9.3.tar.gz \
+         -o /tmp/libsvm-ocaml-0.9.3.tar.gz && \
+    tar zxf /tmp/libsvm-ocaml-0.9.3.tar.gz -C /tmp && \
+    ( \
+      cd /tmp/libsvm-ocaml-0.9.3 && \
+      oasis setup && \
+      ./configure --prefix=$(opam config var prefix) && \
+      make && \
+      make install \
+    ) && \
+    rm -rf /tmp/libsvm-ocaml-0.9.3.tar.gz /tmp/libsvm-ocaml-0.9.3 && \
+    \
+    opam uninstall oasis && \
     \
     sudo yum remove -y gfortran
 
