@@ -11,7 +11,7 @@ A ready-to-use environment of [Jupyter](http://ipython.org/notebook.html) (IPyth
 First, launch a Jupyter server as follows.
 
 ```console
-$ docker run -it -p 8888:8888 akabe/iocaml-datascience
+$ docker run --name iocaml -it -p 8888:8888 akabe/iocaml-datascience
 [I 15:38:04.170 NotebookApp] Writing notebook server cookie secret to /home/opam/.local/share/jupyter/runtime/notebook_cookie_secret
 [W 15:38:04.190 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
 [I 15:38:04.197 NotebookApp] Serving notebooks from local directory: /notebooks
@@ -32,12 +32,18 @@ Second, access to the URL at the above last line to your web browser, then
 
 You can create OCaml notebooks!
 
-Notebooks on your host machine can be mounted to a Docker container by
+Notebooks on your host machine can be mounted to a Docker container like
 
 ```
-docker run -it -p 8888:8888 -v $(pwd):/notebooks akabe/iocaml-datascience
+docker run --name iocaml -it -p 8888:8888 -v $PWD:/notebooks akabe/iocaml-datascience
 ```
 
+### Examples
+
+```
+git clone git@github.com:akabe/docker-iocaml-datascience.git
+docker run --name iocaml -it -p 8888:8888 -v $PWD/docker-iocaml-datascience/examples:/notebooks akabe/iocaml-datascience
+```
 
 ## Distributions
 
@@ -53,8 +59,6 @@ The default images are built on Debian 8:
 
 | Distribution | OCaml | OPAM | Command | Dockerfile |
 | ------------ | ----- | ---- | ------- | ---------- |
-| CentOS | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
-| CentOS | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
 | CentOS 7 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
 | CentOS 7 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:centos7_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
 
@@ -62,8 +66,6 @@ The default images are built on Debian 8:
 
 | Distribution | OCaml | OPAM | Command | Dockerfile |
 | ------------ | ----- | ---- | ------- | ---------- |
-| Debian | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
-| Debian | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
 | Debian 8 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
 | Debian 8 | 4.04.1 | 1.2.2 | `docker pull akabe/iocaml-datascience:debian8_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
 
