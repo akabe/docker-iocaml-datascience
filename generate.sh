@@ -66,6 +66,7 @@ RUN sudo yum -y install epel-release && \\
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \\
     sudo yum install -y --enablerepo=epel,nux-dextop \\
       gfortran \\
+      openssh-clients \\
       blas-devel \\
       lapack-devel \\
       gsl-devel \\
@@ -105,6 +106,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
     sudo apt-get update && \\
     sudo apt-get install -y \\
       gfortran \\
+      ssh \\
       libffi-dev \\
       libblas-dev \\
       liblapack-dev \\

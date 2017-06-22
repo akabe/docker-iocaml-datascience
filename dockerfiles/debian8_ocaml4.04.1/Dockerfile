@@ -6,6 +6,7 @@ RUN sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb9
     sudo apt-get update && \
     sudo apt-get install -y \
       gfortran \
+      ssh \
       libffi-dev \
       libblas-dev \
       liblapack-dev \
