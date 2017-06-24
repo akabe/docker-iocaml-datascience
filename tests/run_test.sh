@@ -23,7 +23,7 @@ done
 
 for file in tests/*.ml ; do
     stdout=$(cat $file | docker run -i --rm --link mysql:mysql --link postgres:postgres $image ocaml -init /home/opam/.iocamlinit)
-    if echo "$stdout" | grep -i 'error\|failure\|exception' >/dev/null; then
+    if echo "$stdout" | grep -i 'error\|failure\|exception\|undefined\|cannot' >/dev/null; then
 		red_echo "[Failed] $file"
 		error_code=1
     else
