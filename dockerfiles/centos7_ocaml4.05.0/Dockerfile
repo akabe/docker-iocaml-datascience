@@ -1,10 +1,16 @@
 FROM akabe/iocaml:centos7_ocaml4.05.0
 
+ENV TENSORFLOW_VERSION 1.1.0
+ENV LD_LIBRARY_PATH    /usr/lib:$LD_LIBRARY_PATH
+ENV LIBRARY_PATH       /usr/lib:$LIBRARY_PATH
+
 ADD MariaDB.repo /etc/yum.repos.d/MariaDB.repo
 
-RUN sudo yum -y install epel-release && \
+RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-${TENSORFLOW_VERSION}.tar.gz" | sudo tar xz -C /usr && \
+    sudo yum -y install epel-release && \
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \
     sudo yum install -y --enablerepo=epel,nux-dextop \
+      rsync \
       gfortran \
       openssh-clients \
       blas-devel \
@@ -21,6 +27,8 @@ RUN sudo yum -y install epel-release && \
       ImageMagick \
       ffmpeg && \
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \
+    \
+    eval $(opam config env) && \
     \
     opam update && \
     (opam install -y batteries || :) && \
@@ -43,14 +51,6 @@ RUN sudo yum -y install epel-release && \
       ocurl \
       'oasis>=0.4.0' && \
     \
-    find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
-    rm -rf $HOME/.opam/archives \
-           $HOME/.opam/repo/default/archives \
-           $HOME/.opam/$OCAML_VERSION/man \
-           $HOME/.opam/$OCAML_VERSION/build && \
-    \
-    eval $(opam config env) && \
-    \
     : install libsvm && \
     curl -L https://bitbucket.org/ogu/libsvm-ocaml/downloads/libsvm-ocaml-0.9.3.tar.gz \
          -o /tmp/libsvm-ocaml-0.9.3.tar.gz && \
@@ -64,9 +64,27 @@ RUN sudo yum -y install epel-release && \
     ) && \
     rm -rf /tmp/libsvm-ocaml-0.9.3.tar.gz /tmp/libsvm-ocaml-0.9.3 && \
     \
+    : install tensorflow && \
+    curl -L "https://github.com/LaurentMazare/tensorflow-ocaml/archive/0.0.10.1.tar.gz" \
+         -o /tmp/tensorflow-ocaml-0.0.10.1.tar.gz && \
+    tar zxf /tmp/tensorflow-ocaml-0.0.10.1.tar.gz -C /tmp && \
+    ( \
+      cd /tmp/tensorflow-ocaml-0.0.10.1 && \
+      sed -i 's/(no_dynlink)//' src/wrapper/jbuild && \
+      sed -i 's/(modes (native))//' src/wrapper/jbuild \
+    ) && \
+    opam pin add -y /tmp/tensorflow-ocaml-0.0.10.1 && \
+    rm -rf /tmp/tensorflow-ocaml-0.0.10.1.tar.gz /tmp/tensorflow-ocaml-0.0.10.1 && \
+    \
+    find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
+    rm -rf $HOME/.opam/archives \
+           $HOME/.opam/repo/default/archives \
+           $HOME/.opam/$OCAML_VERSION/man \
+           $HOME/.opam/$OCAML_VERSION/build && \
+    \
     opam uninstall oasis && \
     \
-    sudo yum remove -y gfortran
+    sudo yum remove -y rsync gfortran
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json

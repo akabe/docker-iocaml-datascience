@@ -115,6 +115,10 @@ Binding to [FFTW3](http://fftw.org/), a major fast Fourier transform library.
 Support vector machine (SVM) is a powerful model in machine learning.
 This is a binding to [libsvm](https://www.csie.ntu.edu.tw/~cjlin/libsvm/), a library for SVMs.
 
+#### TensorFlow ([GitHub](https://github.com/LaurentMazare/tensorflow-ocaml))
+
+Binding to [TensorFlow](https://www.tensorflow.org/), a popular open-source neural network library developed by Google.
+
 #### [L-BFGS](https://github.com/Chris00/L-BFGS-ocaml) ([API](http://lbfgs.forge.ocamlcore.org/API.docdir/Lbfgs.html))
 
 Binding to [L-BFGS-B](http://users.iems.northwestern.edu/~nocedal/lbfgsb.html), a quasi-Newton library for bound-constrained optimization.
