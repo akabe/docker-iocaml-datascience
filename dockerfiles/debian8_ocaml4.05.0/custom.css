@@ -1,12 +1,18 @@
-@font-face {
-  font-family: "Ricty Diminished Discord";
-  src: local("Ricty Diminished Discord");
-}
-@font-face {
-  font-family: "Ricty Diminished";
-  src: local("Ricty Diminished");
-}
-
 .CodeMirror pre, .output pre {
   font-family: "Ricty Diminished Discord", "Ricty Diminished", "Lucida Console", Monaco, monospace;
+}
+
+#ipython_notebook img {
+    display: block;
+    background: url(iocamlnblogo.png) no-repeat;
+    background-size: contain;
+    width: 205px;
+    height: 33px;
+    padding-left: 205px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#ipython_notebook {
+    height: 40px !important;
 }
