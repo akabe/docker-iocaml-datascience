@@ -11,6 +11,8 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
     sudo apt-get update && \
     sudo apt-get install -y \
       rsync \
+      aspcud \
+      bzip2 \
       gfortran \
       ssh \
       libffi-dev \
@@ -24,6 +26,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libpq-dev \
       libsqlite3-dev \
       libcurl4-openssl-dev \
+      libgmp-dev \
       imagemagick \
       ffmpeg && \
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \
@@ -31,10 +34,12 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
     eval $(opam config env) && \
     \
     opam update && \
-    (opam install -y batteries || :) && \
+    opam upgrade -y && \
+    (opam install -y batteries lwt_ssl tls 'cohttp>=0.22.0' || :) && \
     opam install -y \
       num \
       'core>=v0.9.0' \
+      'async>=v0.9.0' \
       lacaml \
       slap \
       lbfgs \
@@ -84,7 +89,9 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
     \
     opam uninstall oasis && \
     \
-    sudo apt-get purge -y rsync gfortran
+    sudo apt-get purge -y rsync aspcud bzip2 gfortran && \
+    sudo apt-get autoremove -y && \
+    sudo apt-get autoclean
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
