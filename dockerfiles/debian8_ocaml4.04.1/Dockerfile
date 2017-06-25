@@ -88,3 +88,4 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
+ADD iocamlnblogo.png /home/opam/.jupyter/custom/iocamlnblogo.png

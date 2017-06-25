@@ -106,6 +106,7 @@ $(common_scripts) && \\
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
+ADD iocamlnblogo.png /home/opam/.jupyter/custom/iocamlnblogo.png
 EOF
 }
 
@@ -152,6 +153,7 @@ $(common_scripts) && \\
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
+ADD iocamlnblogo.png /home/opam/.jupyter/custom/iocamlnblogo.png
 EOF
 }
 
@@ -160,18 +162,26 @@ echo "Generating dockerfiles/$TAG/Dockerfile (ALIAS=${ALIAS[@]})..."
 rm -rf dockerfiles/$TAG
 mkdir -p dockerfiles/$TAG
 
-cat <<'EOF' > dockerfiles/$TAG/custom.css
-@font-face {
-  font-family: "Ricty Diminished Discord";
-  src: local("Ricty Diminished Discord");
-}
-@font-face {
-  font-family: "Ricty Diminished";
-  src: local("Ricty Diminished");
-}
+curl -sL https://raw.githubusercontent.com/andrewray/iocaml/master/profile/static/custom/iocamlnblogo.png -o dockerfiles/$TAG/iocamlnblogo.png
 
+cat <<'EOF' > dockerfiles/$TAG/custom.css
 .CodeMirror pre, .output pre {
   font-family: "Ricty Diminished Discord", "Ricty Diminished", "Lucida Console", Monaco, monospace;
+}
+
+#ipython_notebook img {
+    display: block;
+    background: url(iocamlnblogo.png) no-repeat;
+    background-size: contain;
+    width: 205px;
+    height: 33px;
+    padding-left: 205px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#ipython_notebook {
+    height: 40px !important;
 }
 EOF
 
