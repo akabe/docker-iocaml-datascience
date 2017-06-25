@@ -149,6 +149,8 @@ Binding to [Cairo](https://cairographics.org/), a 2D vector graphics library. Th
 
 A well-benchmarked MySQL client library providing blocking API.
 
+- [examples/mysql_over_ssh_tunnel.ipynb](examples/mysql_over_ssh_tunnel.ipynb)
+
 #### MariaDB ([GitHub](https://github.com/andrenth/ocaml-mariadb))
 
 MariaDB is a rich relational database management system compatible with MySQL.
