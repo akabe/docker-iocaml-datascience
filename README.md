@@ -165,6 +165,13 @@ PostgreSQL is a popular relational database with many aggregate and window funct
 
 A client library for SQLite3, a easy-to-use lightweight database.
 
+#### Cohttp ([GitHub](https://github.com/mirage/ocaml-cohttp), [API](http://mirage.github.io/ocaml-cohttp/))
+
+A very lightweight HTTP(s) client/server library using Async and Lwt.
+This library is useful to access to API servers or Web scraping.
+
+- [examples/cohttp_async_example.ipynb](examples/cohttp_async_example.ipynb)
+
 #### [ocurl](http://ygrek.org.ua/p/ocurl/) ([GitHub](https://github.com/ygrek/ocurl), [API](http://ygrek.org.ua/p/ocurl/api/index.html))
 
 Binding to libcurl, a popular easy-to-use HTTP(S) client library.

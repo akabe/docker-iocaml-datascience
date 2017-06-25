@@ -11,6 +11,8 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm && \
     sudo yum install -y --enablerepo=epel,nux-dextop \
       rsync \
+      aspcud \
+      bzip2 \
       gfortran \
       openssh-clients \
       blas-devel \
@@ -24,6 +26,8 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       postgresql-devel \
       sqlite-devel \
       libcurl-devel \
+      gmp-devel \
+      openssl-devel \
       ImageMagick \
       ffmpeg && \
     sudo ln -sf /usr/lib64/libmysqlclient.so.18.0.0 /usr/lib/libmysqlclient.so && \
@@ -31,10 +35,12 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
     eval $(opam config env) && \
     \
     opam update && \
-    (opam install -y batteries || :) && \
+    opam upgrade -y && \
+    (opam install -y batteries lwt_ssl tls 'cohttp>=0.22.0' || :) && \
     opam install -y \
       num \
       'core>=v0.9.0' \
+      'async>=v0.9.0' \
       lacaml \
       slap \
       lbfgs \
@@ -84,7 +90,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
     \
     opam uninstall oasis && \
     \
-    sudo yum remove -y rsync gfortran
+    sudo yum remove -y rsync aspcud bzip2 gfortran
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
