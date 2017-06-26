@@ -112,7 +112,10 @@ $(common_scripts) && \\
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
-ADD iocamlnblogo.png /home/opam/.jupyter/custom/iocamlnblogo.png
+
+RUN sudo chown opam:opam -R /home/opam/.jupyter && \\
+    curl -L https://raw.githubusercontent.com/andrewray/iocaml/master/profile/static/custom/iocamlnblogo.png \\
+         -o /home/opam/.jupyter/custom/iocamlnblogo.png
 EOF
 }
 
@@ -164,7 +167,10 @@ $(common_scripts) && \\
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
-ADD iocamlnblogo.png /home/opam/.jupyter/custom/iocamlnblogo.png
+
+RUN sudo chown opam:opam -R /home/opam/.jupyter && \\
+    curl -L https://raw.githubusercontent.com/andrewray/iocaml/master/profile/static/custom/iocamlnblogo.png \\
+         -o /home/opam/.jupyter/custom/iocamlnblogo.png
 EOF
 }
 
@@ -172,8 +178,6 @@ echo "Generating dockerfiles/$TAG/Dockerfile (ALIAS=${ALIAS[@]})..."
 
 rm -rf dockerfiles/$TAG
 mkdir -p dockerfiles/$TAG
-
-curl -sL https://raw.githubusercontent.com/andrewray/iocaml/master/profile/static/custom/iocamlnblogo.png -o dockerfiles/$TAG/iocamlnblogo.png
 
 cat <<'EOF' > dockerfiles/$TAG/custom.css
 .CodeMirror pre, .output pre {
