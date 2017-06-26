@@ -94,4 +94,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
 ADD notebook.json /home/opam/.jupyter/nbconfig/notebook.json
-ADD iocamlnblogo.png /home/opam/.jupyter/custom/iocamlnblogo.png
+
+RUN sudo chown opam:opam -R /home/opam/.jupyter && \
+    curl -L https://raw.githubusercontent.com/andrewray/iocaml/master/profile/static/custom/iocamlnblogo.png \
+         -o /home/opam/.jupyter/custom/iocamlnblogo.png
