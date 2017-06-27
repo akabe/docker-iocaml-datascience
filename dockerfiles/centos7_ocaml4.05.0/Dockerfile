@@ -14,6 +14,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       aspcud \
       bzip2 \
       gfortran \
+      gcc-c++ \
       openssh-clients \
       blas-devel \
       lapack-devel \
