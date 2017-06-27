@@ -22,6 +22,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       fftw-devel \
       libsvm-devel \
       cairo-devel \
+      plplot-devel \
       MariaDB-devel \
       postgresql-devel \
       sqlite-devel \
@@ -48,7 +49,10 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       oml \
       gsl \
       fftw3 \
+      gpr \
+      owl \
       'cairo2>=0.5' \
+      plplot \
       archimedes \
       mysql \
       'mariadb>=0.8.1' \
