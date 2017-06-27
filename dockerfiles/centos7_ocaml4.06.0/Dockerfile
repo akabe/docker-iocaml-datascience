@@ -24,7 +24,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libsvm-devel \
       cairo-devel \
       plplot-devel \
-      eigen3-devel \
       MariaDB-devel \
       postgresql-devel \
       sqlite-devel \

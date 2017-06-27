@@ -23,7 +23,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libsvm-dev \
       libcairo2-dev \
       libplplot-dev \
-      libeigen3-dev \
       libmariadb-dev \
       libpq-dev \
       libsqlite3-dev \

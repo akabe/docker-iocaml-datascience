@@ -99,7 +99,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libsvm-devel \\
       cairo-devel \\
       plplot-devel \\
-      eigen3-devel \\
       MariaDB-devel \\
       postgresql-devel \\
       sqlite-devel \\
@@ -155,7 +154,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libsvm-dev \\
       libcairo2-dev \\
       libplplot-dev \\
-      libeigen3-dev \\
       libmariadb-dev \\
       libpq-dev \\
       libsqlite3-dev \\
