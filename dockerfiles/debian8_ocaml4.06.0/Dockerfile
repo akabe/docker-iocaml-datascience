@@ -93,8 +93,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
     \
-    opam uninstall oasis && \
-    \
     sudo apt-get purge -y rsync aspcud bzip2 gfortran && \
     sudo apt-get autoremove -y && \
     sudo apt-get autoclean

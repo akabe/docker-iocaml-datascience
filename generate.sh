@@ -59,9 +59,7 @@ function common_scripts() {
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
-           $HOME/.opam/$OCAML_VERSION/build && \
-    \
-    opam uninstall oasis
+           $HOME/.opam/$OCAML_VERSION/build
 EOF
 }
 

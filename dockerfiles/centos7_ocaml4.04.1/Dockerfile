@@ -94,8 +94,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
     \
-    opam uninstall oasis && \
-    \
     sudo yum remove -y rsync aspcud bzip2 gfortran
 
 ADD custom.css /home/opam/.jupyter/custom/custom.css
