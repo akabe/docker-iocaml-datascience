@@ -14,6 +14,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       aspcud \
       bzip2 \
       gfortran \
+      gcc-c++ \
       openssh-clients \
       blas-devel \
       lapack-devel \
@@ -22,6 +23,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       fftw-devel \
       libsvm-devel \
       cairo-devel \
+      plplot-devel \
       MariaDB-devel \
       postgresql-devel \
       sqlite-devel \
@@ -48,7 +50,10 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       oml \
       gsl \
       fftw3 \
+      gpr \
+      owl \
       'cairo2>=0.5' \
+      plplot \
       archimedes \
       mysql \
       'mariadb>=0.8.1' \
@@ -87,8 +92,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
-    \
-    opam uninstall oasis && \
     \
     sudo yum remove -y rsync aspcud bzip2 gfortran
 

@@ -18,7 +18,10 @@ function common_scripts() {
       oml \
       gsl \
       fftw3 \
+      gpr \
+      owl \
       'cairo2>=0.5' \
+      plplot \
       archimedes \
       mysql \
       'mariadb>=0.8.1' \
@@ -56,9 +59,7 @@ function common_scripts() {
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
-           $HOME/.opam/$OCAML_VERSION/build && \
-    \
-    opam uninstall oasis
+           $HOME/.opam/$OCAML_VERSION/build
 EOF
 }
 
@@ -88,6 +89,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       aspcud \\
       bzip2 \\
       gfortran \\
+      gcc-c++ \\
       openssh-clients \\
       blas-devel \\
       lapack-devel \\
@@ -96,6 +98,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       fftw-devel \\
       libsvm-devel \\
       cairo-devel \\
+      plplot-devel \\
       MariaDB-devel \\
       postgresql-devel \\
       sqlite-devel \\
@@ -150,6 +153,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libfftw3-dev \\
       libsvm-dev \\
       libcairo2-dev \\
+      libplplot-dev \\
       libmariadb-dev \\
       libpq-dev \\
       libsqlite3-dev \\
@@ -158,6 +162,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       imagemagick \\
       ffmpeg && \\
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \\
+    sudo ln -sf /usr/lib/x86_64-linux-gnu/libshp.so.2 /usr/lib/libshp.so && \\
     \\
 $(common_scripts) && \\
     \\

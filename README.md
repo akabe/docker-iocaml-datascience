@@ -88,9 +88,12 @@ complex iteration on collections, etc.
 - **[L-BFGS](https://github.com/Chris00/L-BFGS-ocaml)** ([API](http://lbfgs.forge.ocamlcore.org/API.docdir/Lbfgs.html)) &mdash; A binding to [L-BFGS-B](http://users.iems.northwestern.edu/~nocedal/lbfgsb.html), a quasi-Newton library for bound-constrained optimization.
 - **Ocephes** ([GitHub](https://github.com/rleonid/ocephes), [API](https://rleonid.github.io/ocephes/)) &mdash; A binding to [Ocephes](http://www.netlib.org/cephes/), a library of special math functions like Binominal, Gaussian, Gamma distributions, incomplete Beta integral.
 - **[Oml](http://www.hammerlab.org/2015/08/11/introducing-oml-a-small-ocaml-library-for-numerical-computing/)** ([GitHub](https://github.com/hammerlab/oml), [API](http://www.hammerlab.org/oml/index.html)) &mdash; A small library for numerical computing on OCaml.
+- **[GPR](https://mmottl.github.io/gpr/)** ([GitHub](https://github.com/mmottl/gpr), [API](http://mmottl.github.io/gpr/api/). [PDF](http://mmottl.github.io/gpr/gpr_manual.pdf)) &mdash; Efficient and scalable Gaussian Process Regression in OCaml.
+- **Owl** ([GitHub](https://github.com/ryanrhymes/owl), [API](http://www.cl.cam.ac.uk/~lw525/owl/)) &mdash; an OCaml numerical library: dense and sparse matrix, linear algebra, regressions, maths and stats functions.
 
 ### Visualization
 
+- **PLplot** ([GitHub](https://github.com/hcarty/ocaml-plplot)) &mdash; A binding to [PLplot](http://plplot.sf.net/), a library for creating scientific plots.
 - **[Archimedes](http://archimedes.forge.ocamlcore.org/)** ([API](http://archimedes.forge.ocamlcore.org/API/Archimedes.html)) &mdash; A 2D plot library like matplotlib in Python. You can embed PNG images in Jupyter notebooks.
     - [examples/archimedes_iocaml.ipynb](examples/archimedes_iocaml.ipynb)
 - **Cairo2** ([GitHub](https://github.com/Chris00/ocaml-cairo), [Tutorial](http://cairo.forge.ocamlcore.org/tutorial/index.html), [API](http://cairo.forge.ocamlcore.org/tutorial/Cairo.html)) &mdash; A binding to [Cairo](https://cairographics.org/), a 2D vector graphics library. This library is useful as a backend of Archimedes.

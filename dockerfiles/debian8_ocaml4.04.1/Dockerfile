@@ -22,6 +22,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       libfftw3-dev \
       libsvm-dev \
       libcairo2-dev \
+      libplplot-dev \
       libmariadb-dev \
       libpq-dev \
       libsqlite3-dev \
@@ -30,6 +31,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       imagemagick \
       ffmpeg && \
     sudo ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20 /usr/lib/libmysqlclient.so && \
+    sudo ln -sf /usr/lib/x86_64-linux-gnu/libshp.so.2 /usr/lib/libshp.so && \
     \
     eval $(opam config env) && \
     \
@@ -47,7 +49,10 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       oml \
       gsl \
       fftw3 \
+      gpr \
+      owl \
       'cairo2>=0.5' \
+      plplot \
       archimedes \
       mysql \
       'mariadb>=0.8.1' \
@@ -86,8 +91,6 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
-    \
-    opam uninstall oasis && \
     \
     sudo apt-get purge -y rsync aspcud bzip2 gfortran && \
     sudo apt-get autoremove -y && \
