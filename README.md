@@ -77,6 +77,7 @@ complex iteration on collections, etc.
 
 - **[Lacaml](http://mmottl.github.io/lacaml/)** ([GitHub](https://github.com/mmottl/lacaml), [API](http://mmottl.github.io/lacaml/API.docdir/)) &mdash; A binding to [BLAS](http://www.netlib.org/blas/) (Basic Linear Algebra Subprograms) and [LAPACK](http://www.netlib.org/lapack/) (Linear Algebra PACKage), traditional linear algebra libraries written in Fortran. This library supplies basic operations on vectors and matrices (e.g., addition, dot product, multiplication), LU, QR, SVD, least-square fitting, etc.
 - **[SLAP](http://akabe.github.io/slap/)** ([GitHub](https://github.com/akabe/slap), [API](http://akabe.github.io/slap/api/)) &mdash; A high-level wrapper of Lacaml with type-based static size checks for vectors and matrices.
+    - [examples/slap_two_layer_neural_network.ipynb](examples/slap_two_layer_neural_network.ipynb)
 - **[GSL](http://mmottl.github.io/gsl-ocaml)** ([GitHub](https://github.com/mmottl/gsl-ocaml), [API](http://mmottl.github.io/gsl-ocaml/api/)) &mdash; A binding to [GNU Scientific Library (GSL)](http://www.gnu.org/software/gsl/), a rich numerical analysis library containing interface to BLAS. This library contains eigenproblem solvers, least square fitting, pseudo-random number generators (such as Mersenne Twister), FFT (fast Fourier transform), Monte-Carlo simulation, etc.
     - [examples/gaussian_random_walk.ipynb](examples/gaussian_random_walk.ipynb)
     - [examples/random_dataset_generation.ipynb](examples/random_dataset_generation.ipynb)
