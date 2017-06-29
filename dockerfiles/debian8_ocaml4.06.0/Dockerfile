@@ -46,6 +46,7 @@ RUN curl -L "https://storage.googleapis.com/tensorflow/libtensorflow/libtensorfl
       ocephes \
       oml \
       gsl \
+      gpr \
       fftw3 \
       'cairo2>=0.5' \
       archimedes \

@@ -17,6 +17,7 @@ function common_scripts() {
       ocephes \
       oml \
       gsl \
+      gpr \
       fftw3 \
       'cairo2>=0.5' \
       archimedes \
