@@ -105,6 +105,7 @@ complex iteration on collections, etc.
 - **[SQLite3](http://mmottl.github.io/sqlite3-ocaml/)** ([GitHub](https://github.com/mmottl/sqlite3-ocaml), [API](http://mmottl.github.io/sqlite3-ocaml/API.docdir/)) &mdash; A client library for SQLite3, a easy-to-use lightweight database.
 - **Cohttp** ([GitHub](https://github.com/mirage/ocaml-cohttp), [API](http://mirage.github.io/ocaml-cohttp/)) &mdash; A very lightweight HTTP(s) client/server library using Async and Lwt. This library is useful to access to API servers or Web scraping.
     - [examples/cohttp_async_example.ipynb](examples/cohttp_async_example.ipynb)
+    - [examples/cohttp_lwt_example.ipynb](examples/cohttp_lwt_example.ipynb)
 - **[ocurl](http://ygrek.org.ua/p/ocurl/)** ([GitHub](https://github.com/ygrek/ocurl), [API](http://ygrek.org.ua/p/ocurl/api/index.html)) &mdash; A binding to libcurl, a popular easy-to-use HTTP(S) client library. This library is useful to access to API servers or Web scraping.
     - [examples/ocurl_example.ipynb](examples/ocurl_example.ipynb)
 
