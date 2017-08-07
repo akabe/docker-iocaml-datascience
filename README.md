@@ -1,5 +1,7 @@
 # [akabe/iocaml-datascience](https://hub.docker.com/r/akabe/iocaml-datascience/)
 
+**Deprecated**: this Dockerfile is no longer maintained. Instead, [akabe/ocaml-jupyter-datascience](https://github.com/akabe/docker-ocaml-jupyter-datascience) is available.
+
 | Travis CI | MicroBadger |
 | --- | --- |
 | [![Build Status](https://travis-ci.org/akabe/docker-iocaml-datascience.svg?branch=master)](https://travis-ci.org/akabe/docker-iocaml-datascience) | [![Image Status](https://images.microbadger.com/badges/image/akabe/iocaml-datascience.svg)](https://microbadger.com/images/akabe/iocaml-datascience) |
